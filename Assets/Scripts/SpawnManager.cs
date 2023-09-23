@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
@@ -11,16 +9,12 @@ public class SpawnManager : MonoBehaviour
     {
         Instance = this;
     }
+  
     //Iniciar la generación
     public void StartSpawn()
     {
         InvokeRepeating("SpawnEnemy", 0f, spawnTime);
     }
-
-    //private void Start()
-    //{
-    //    SpawnEnemy();
-    //}
 
     //Encargado de generar el enemigo
     void SpawnEnemy()
@@ -30,6 +24,6 @@ public class SpawnManager : MonoBehaviour
     //Para detener la generación
     public void StopSpawn()
     {
-
+        CancelInvoke("SpawnEnemy");
     }
 }
